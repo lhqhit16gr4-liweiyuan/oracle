@@ -1,0 +1,589 @@
+ SQL> select initcap('hello')from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> INITCAP('H
+SP2-0042: 未知命令 "INITCAP('H" - 其余行忽略。
+SQL> ----------
+SQL> Hello
+SP2-0042: 未知命令 "Hello" - 其余行忽略。
+SQL> 
+SQL> select lower('HELLO')from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> LOWER('HEL
+SP2-0042: 未知命令 "LOWER('HEL" - 其余行忽略。
+SQL> ----------
+SQL> hello
+SP2-0042: 未知命令 "hello" - 其余行忽略。
+SQL> 
+SQL> select upper('hello')from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> UPPER('HEL
+SP2-0042: 未知命令 "UPPER('HEL" - 其余行忽略。
+SQL> ----------
+SQL> HELLO
+SP2-0042: 未知命令 "HELLO" - 其余行忽略。
+SQL> select length('hello')from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> LENGTH('HELLO')
+SP2-0734: 未知的命令开头 "LENGTH('HE..." - 忽略了剩余的行。
+SQL> ---------------
+SQL>               5
+SP2-0226: 行号  无效
+SQL> 
+SQL> select ltrim('    hello') from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> LTRIM('HEL
+SP2-0042: 未知命令 "LTRIM('HEL" - 其余行忽略。
+SQL> ----------
+SQL> hello
+SP2-0042: 未知命令 "hello" - 其余行忽略。
+SQL> 
+SQL> select rtrim('hello     ') from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> RTRIM('HEL
+SP2-0042: 未知命令 "RTRIM('HEL" - 其余行忽略。
+SQL> ----------
+SQL> hello
+SP2-0042: 未知命令 "hello" - 其余行忽略。
+SQL> select rtrim('helloword','word') from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> RTRIM('H
+SP2-0042: 未知命令 "RTRIM('H" - 其余行忽略。
+SQL> --------
+SQL> hell
+SP2-0042: 未知命令 "hell" - 其余行忽略。
+SQL> select translate('helloword','w','d') from dual;
+SP2-0734: 未知的命令开头 "SQL> selec..." - 忽略了剩余的行。
+SQL> 
+SQL> TRANSLATE('HELLOWO
+SP2-0734: 未知的命令开头 "TRANSLATE(..." - 忽略了剩余的行。
+SQL> ------------------
+SQL> hellodord
+SP2-0042: 未知命令 "hellodord" - 其余行忽略。
+SQL> select replace('helloword','o','OO')from dual;
+
+REPLACE('HELLOWORD','O                                                          
+----------------------                                                          
+hellOOwOOrd                                                                     
+
+SQL> select instr('helloword','o')from dual;m dual;
+select instr('helloword','o')from dual;m dual
+                                      *
+第 1 行出现错误: 
+ORA-00911: 无效字符 
+
+
+SQL> select instr('helloword','o')from dual;
+
+INSTR('HELLOWORD','O')                                                          
+----------------------                                                          
+                     5                                                          
+
+SQL> select substr('helloword','7','3')from dual;
+
+SUBSTR                                                                          
+------                                                                          
+ord                                                                             
+
+SQL> select substr('helloword','10g')from dual;
+select substr('helloword','10g')from dual
+                          *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select concat('helloword','10g')from dual;
+
+CONCAT('HELLOWORD','10G'                                                        
+------------------------                                                        
+helloword10g                                                                    
+
+SQL> select sysdate from dual;
+
+SYSDATE                                                                         
+--------------                                                                  
+20-3月 -18                                                                      
+
+SQL> select months_between(to_day('2010-10-21','yyyy-mm-dd'),sysdate) from dual;
+select months_between(to_day('2010-10-21','yyyy-mm-dd'),sysdate) from dual
+                      *
+第 1 行出现错误: 
+ORA-00904: "TO_DAY": 标识符无效 
+
+
+SQL> select months_between(to_date('2010-10-21','yyyy-mm-dd'),sysdate) from dual;
+
+MONTHS_BETWEEN(TO_DATE('2010-10-21','YYYY-MM-DD'),SYSDATE)                      
+----------------------------------------------------------                      
+                                                -88.983156                      
+
+SQL> select add_months(sysdate,5)from dual;
+
+ADD_MONTHS(SYS                                                                  
+--------------                                                                  
+20-8月 -18                                                                      
+
+SQL> select next_day(sysdate,5)from dual;
+
+NEXT_DAY(SYSDA                                                                  
+--------------                                                                  
+22-3月 -18                                                                      
+
+SQL> select last_day(sysdate+10)from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-3月 -18                                                                      
+
+SQL> select last_day(sysdate+1)from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-3月 -18                                                                      
+
+SQL> select last_day(sysdate+2)from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-3月 -18                                                                      
+
+SQL> select last_day(sysdate)from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-3月 -18                                                                      
+
+SQL> select to_char(sysdate,'yyyy"年"mm"月"dd"日") from dual;
+ERROR:
+ORA-01756: 引号内的字符串没有正确结束 
+
+
+SQL> select to_char(sysdate,'yyyy"年"mm"月"dd"日"') from dual;
+
+TO_CHAR(SYSDATE,'YYYY"年"MM"月"DD"                                              
+----------------------------------                                              
+2018年03月20日                                                                  
+
+SQL> select to_char(sysdate,'yyyy-mm-dd day hh24:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YYYY-MM-DDDAYHH24:MI:SS')                                      
+----------------------------------------------------------------                
+2018-03-20 星期二 11:40:27                                                      
+
+SQL> select to_date('2014-10-19','yyyy-mm-dd') from dual;
+
+TO_DATE('2014-                                                                  
+--------------                                                                  
+19-10月-14                                                                      
+
+SQL> select to_date('14-10-2018','-mm-dd-yyyy') from dual;
+select to_date('14-10-2018','-mm-dd-yyyy') from dual
+               *
+第 1 行出现错误: 
+ORA-01861: 文字与格式字符串不匹配 
+
+
+SQL> select to_date('14-10-2018','mm-dd-yyyy') from dual;
+select to_date('14-10-2018','mm-dd-yyyy') from dual
+               *
+第 1 行出现错误: 
+ORA-01843: 无效的月份 
+
+
+SQL> select to_date('12-10-2018','mm-dd-yyyy') from dual;
+
+TO_DATE('12-10                                                                  
+--------------                                                                  
+10-12月-18                                                                      
+
+SQL> select to_number('$39,340.35','L99,999.99') from dual;
+select to_number('$39,340.35','L99,999.99') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$39,340.35','L99,999.99') from dual;
+select to_number('$39,340.35','L99,999.99') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$39,340.35','L99,999.99') from dual;
+select to_number('$39,340.35','L99,999.99') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$39,34.35','L99,99.99') from dual;
+select to_number('$39,34.35','L99,99.99') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$9,34.35','L9,99.99') from dual;
+select to_number('$9,34.35','L9,99.99') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$9,34.35','L9,99.9') from dual;
+select to_number('$9,34.35','L9,99.9') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$9,34.35','$9,99.9') from dual;
+select to_number('$9,34.35','$9,99.9') from dual
+                 *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select to_number('$9,34.35','$9,99.99') from dual;
+
+TO_NUMBER('$9,34.35','$9,99.99')                                                
+--------------------------------                                                
+                          934.35                                                
+
+SQL> select to_number('0024','9999') from dual;
+
+TO_NUMBER('0024','9999')                                                        
+------------------------                                                        
+                      24                                                        
+
+SQL> select *from dept;
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+         1 董事会                                                               
+111111                         沈阳                                             
+                                                                                
+                                                                                
+         2 市场部                                                               
+222222                         武汉                                             
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+         3 研发部                                                               
+333333                         长春                                             
+                                                                                
+                                                                                
+         4 财务部                                                               
+444444                         南京                                             
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+                                                                                
+         5 行政部                                                               
+555555                         深圳                                             
+                                                                                
+                                                                                
+         6 设计部                                                               
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+666666                         珠海                                             
+                                                                                
+                                                                                
+
+已选择6行。
+
+SQL> update dept set tel=null where  dname='研发部'；
+  2  update dept set tel=null where  didname='研发部'；
+  3  update dept set tel=null where  dname='研发部';
+update dept set tel=null where  didname='研发部'；
+*
+第 2 行出现错误: 
+ORA-00911: 无效字符 
+
+
+SQL> update dept set tel=null where  dname='研发部';
+
+已更新 1 行。
+
+SQL> select *from dept;
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+         1 董事会                                                               
+111111                         沈阳                                             
+                                                                                
+                                                                                
+         2 市场部                                                               
+222222                         武汉                                             
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+         3 研发部                                                               
+                               长春                                             
+                                                                                
+                                                                                
+         4 财务部                                                               
+444444                         南京                                             
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+                                                                                
+         5 行政部                                                               
+555555                         深圳                                             
+                                                                                
+                                                                                
+         6 设计部                                                               
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+666666                         珠海                                             
+                                                                                
+                                                                                
+
+已选择6行。
+
+SQL> select d.did,d.dname,nvl(d.tel,'无') from dept d;
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+NVL(D.TEL,'无')                                                                 
+------------------------------                                                  
+         1 董事会                                                               
+111111                                                                          
+                                                                                
+         2 市场部                                                               
+222222                                                                          
+                                                                                
+         3 研发部                                                               
+无                                                                              
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+NVL(D.TEL,'无')                                                                 
+------------------------------                                                  
+         4 财务部                                                               
+444444                                                                          
+                                                                                
+         5 行政部                                                               
+555555                                                                          
+                                                                                
+         6 设计部                                                               
+666666                                                                          
+                                                                                
+
+已选择6行。
+
+SQL> select *from emp;
+
+       EID ENAME                                    SEX    HIRE                 
+---------- ---------------------------------------- ------ --------------       
+       SAR        DID                                                           
+---------- ----------                                                           
+         5 tom                                      m      25-7月 -17           
+    4500.5          1                                                           
+                                                                                
+         6 jacky                                    m      19-9月 -16           
+   2982.12          2                                                           
+                                                                                
+         7 kelly                                    f      26-12月-16           
+   3491.32          3                                                           
+                                                                                
+
+       EID ENAME                                    SEX    HIRE                 
+---------- ---------------------------------------- ------ --------------       
+       SAR        DID                                                           
+---------- ----------                                                           
+         8 red                                      f      24-10月-17           
+      3700          4                                                           
+                                                                                
+         9 blue                                     m      17-1月 -17           
+      3800          2                                                           
+                                                                                
+        10 green                                    m      27-1月 -17           
+      5100          3                                                           
+                                                                                
+
+       EID ENAME                                    SEX    HIRE                 
+---------- ---------------------------------------- ------ --------------       
+       SAR        DID                                                           
+---------- ----------                                                           
+        11 peter                                    m      16-7月 -17           
+      6700          4                                                           
+                                                                                
+
+已选择7行。
+
+SQL> select eid ,ename, case sex when 'm' then'男' when 'f' then '女' else sex end from emp;
+
+       EID ENAME                                    CASESE                      
+---------- ---------------------------------------- ------                      
+         5 tom                                      男                          
+         6 jacky                                    男                          
+         7 kelly                                    女                          
+         8 red                                      女                          
+         9 blue                                     男                          
+        10 green                                    男                          
+        11 peter                                    男                          
+
+已选择7行。
+
+SQL> select d.* from dept d where not exists (select e.*from emp e where e.did=d.did);
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+         6 设计部                                                               
+666666                         珠海                                             
+                                                                                
+                                                                                
+         5 行政部                                                               
+555555                         深圳                                             
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+
+SQL> select *from dept;
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+         1 董事会                                                               
+111111                         沈阳                                             
+                                                                                
+                                                                                
+         2 市场部                                                               
+222222                         武汉                                             
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+         3 研发部                                                               
+                               长春                                             
+                                                                                
+                                                                                
+         4 财务部                                                               
+444444                         南京                                             
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+                                                                                
+         5 行政部                                                               
+555555                         深圳                                             
+                                                                                
+                                                                                
+         6 设计部                                                               
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+666666                         珠海                                             
+                                                                                
+                                                                                
+
+已选择6行。
+
+SQL> insert into dept values(7,'实施部'，7,'777777',0);
+
+已创建 1 行。
+
+SQL> select d.* from dept d where not exists (select e.*from emp e where e.did=d.did);
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+         5 行政部                                                               
+555555                         深圳                                             
+                                                                                
+                                                                                
+         6 设计部                                                               
+666666                         珠海                                             
+                                                                                
+
+       DID DNAME                                                                
+---------- ----------------------------------------                             
+TEL                            RESS                                             
+------------------------------ ----------------------------------------         
+    MASTER                                                                      
+----------                                                                      
+                                                                                
+         7 实施部                                                               
+7                              777777                                           
+         0                                                                      
+                                                                                
+
+SQL> spool off;
