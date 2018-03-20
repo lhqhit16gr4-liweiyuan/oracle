@@ -1,0 +1,145 @@
+SQL> select initcap('hello') from dual;
+
+INITCAP('H                                                                      
+----------                                                                      
+Hello                                                                           
+
+SQL> select lower('HELLO') from dual;
+
+LOWER('HEL                                                                      
+----------                                                                      
+hello                                                                           
+
+SQL> select upper('hello') from dual;
+
+UPPER('HEL                                                                      
+----------                                                                      
+HELLO                                                                           
+
+SQL> select length('hello') from dual;
+
+LENGTH('HELLO')                                                                 
+---------------                                                                 
+              5                                                                 
+
+SQL> select ltrim('    hello') from dual;
+
+LTRIM('HEL                                                                      
+----------                                                                      
+hello                                                                           
+
+SQL> select rtrim('hello    ') from dual;
+
+RTRIM('HEL                                                                      
+----------                                                                      
+hello                                                                           
+
+SQL> select rtrim('helloword','word') from dual;
+
+RTRIM('H                                                                        
+--------                                                                        
+hell                                                                            
+
+SQL> select translate('jack','j','b') from dual;
+
+TRANSLAT                                                                        
+--------                                                                        
+back                                                                            
+
+SQL> select replace('jack','j','bl') from dual;
+
+REPLACE('J                                                                      
+----------                                                                      
+black                                                                           
+
+SQL> select instr('oracle','a') from dual;
+
+INSTR('ORACLE','A')                                                             
+-------------------                                                             
+                  3                                                             
+
+SQL> select substr('oracle10g',7,3) from dual;
+
+SUBSTR                                                                          
+------                                                                          
+10g                                                                             
+
+SQL> select concat('oracle','10g') from dual;
+
+CONCAT('ORACLE','1                                                              
+------------------                                                              
+oracle10g                                                                       
+
+SQL> select sysdate from dual;
+
+SYSDATE                                                                         
+--------------                                                                  
+19-3月 -18                                                                      
+
+SQL> select months_between(to_date('2010-10-21','yyyy-mm-dd'),sysdate) from dual;
+
+MONTHS_BETWEEN(TO_DATE('2010-10-21','YYYY-MM-DD'),SYSDATE)                      
+----------------------------------------------------------                      
+                                                -88.963918                      
+
+SQL> select add_months(sysdate,5) from dual;
+
+ADD_MONTHS(SYS                                                                  
+--------------                                                                  
+19-8月 -18                                                                      
+
+SQL> select next_day(sysdate+12,5) from dual;
+
+NEXT_DAY(SYSDA                                                                  
+--------------                                                                  
+05-4月 -18                                                                      
+
+SQL> select last_day(sysdate+57) from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-5月 -18                                                                      
+
+SQL> select to_char(sysdate,'yyyy"年"mm"月"dd"日"') from dual;
+
+TO_CHAR(SYSDATE,'YYYY"年"MM"月"DD"                                              
+----------------------------------                                              
+2018年03月19日                                                                  
+
+SQL> select to_char(sysdate,'yyyy-mm-dd day hh24:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YYYY-MM-DDDAYHH24:MI:SS')                                      
+----------------------------------------------------------------                
+2018-03-19 星期一 21:11:30                                                      
+
+SQL> select to_date('2012-10-19','yyyy-mm-dd') from dual;
+
+TO_DATE('2012-                                                                  
+--------------                                                                  
+19-10月-12                                                                      
+
+SQL> select to_date('10-24-2013','mm-dd-yyyy') from dual;
+
+TO_DATE('10-24                                                                  
+--------------                                                                  
+24-10月-13                                                                      
+
+SQL> select to_number('$39,275.50','$99,999.99') from dual;
+
+TO_NUMBER('$39,275.50','$99,999.99')                                            
+------------------------------------                                            
+                             39275.5                                            
+
+SQL> select to_number('￥3,925.53','L9,999.99') from dual;
+
+TO_NUMBER('￥3,925.53','L9,999.99')                                             
+-----------------------------------                                             
+                            3925.53                                             
+
+SQL> select to_number('0023','9999') from dual;
+
+TO_NUMBER('0023','9999')                                                        
+------------------------                                                        
+                      23                                                        
+
+SQL> spool off
