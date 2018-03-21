@@ -1,0 +1,160 @@
+SQL> select initcap('hello')from dual;
+
+INITC                                                                           
+-----                                                                           
+Hello                                                                           
+
+SQL> select lower ('HELLO')from dual;
+
+LOWER                                                                           
+-----                                                                           
+hello                                                                           
+
+SQL> select upper ('hello')from dual;
+
+UPPER                                                                           
+-----                                                                           
+HELLO                                                                           
+
+SQL> select length('hellowrold')from dual'
+  2  select length('hellowrold')from dual;
+ERROR:
+ORA-01756: 引号内的字符串没有正确结束 
+
+
+SQL> select length('hellowrold')from dual;
+
+LENGTH('HELLOWROLD')                                                            
+--------------------                                                            
+                  10                                                            
+
+SQL> select ltrim('   hello')from dual;
+
+LTRIM                                                                           
+-----                                                                           
+hello                                                                           
+
+SQL> select rtrim('hello    ')from dual;
+
+RTRIM                                                                           
+-----                                                                           
+hello                                                                           
+
+SQL> select translate('jack','j','b')from dual;
+
+TRAN                                                                            
+----                                                                            
+back                                                                            
+
+SQL> select replace('jack','j','bl')from dual;
+
+REPLA                                                                           
+-----                                                                           
+black                                                                           
+
+SQL> select instr('oracle','a')from dual;
+
+INSTR('ORACLE','A')                                                             
+-------------------                                                             
+                  3                                                             
+
+SQL> select substr('oracle','10g')from dual;
+select substr('oracle','10g')from dual
+                       *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select substr('oracle','10g')from dual;
+select substr('oracle','10g')from dual
+                       *
+第 1 行出现错误: 
+ORA-01722: 无效数字 
+
+
+SQL> select substr('oracle10g',7,3)from dual;
+
+SUB                                                                             
+---                                                                             
+10g                                                                             
+
+SQL> select concat('oracle','10g')from dual;
+
+CONCAT('O                                                                       
+---------                                                                       
+oracle10g                                                                       
+
+SQL> select sysdate from dual;
+
+SYSDATE                                                                         
+--------------                                                                  
+21-3月 -18                                                                      
+
+SQL> select months_between(to_date('2010-10-21','yyyy-mm-dd'),sysdate)from dual;
+
+MONTHS_BETWEEN(TO_DATE('2010-10-21','YYYY-MM-DD'),SYSDATE)                      
+----------------------------------------------------------                      
+                                                       -89                      
+
+SQL> select add_months(sysdate,5)from dual;
+
+ADD_MONTHS(SYS                                                                  
+--------------                                                                  
+21-8月 -18                                                                      
+
+SQL> select next-day（sysdate+12,5)from dual;
+select next-day（sysdate+12,5)from dual
+            *
+第 1 行出现错误: 
+ORA-00904: "DAY": 标识符无效 
+
+
+SQL> select next_day（sysdate+12,5)from dual;
+
+NEXT_DAY（SYSD                                                                  
+--------------                                                                  
+05-4月 -18                                                                      
+
+SQL> select last_day(sysdate+57)from dual;
+
+LAST_DAY(SYSDA                                                                  
+--------------                                                                  
+31-5月 -18                                                                      
+
+SQL> select to_char(sysdate,'yyyy"年"mm"月"dd"日"')from dual;
+
+TO_CHAR(SYSDAT                                                                  
+--------------                                                                  
+2018年03月21日                                                                  
+
+SQL> select to_char(sysdate,'yyyy-mm-dd day hh24-mi-ss')from dual;
+
+TO_CHAR(SYSDATE,'YYYY-MM-DDDA                                                   
+-----------------------------                                                   
+2018-03-21 星期三 12-46-28                                                      
+
+SQL> select to_date('2012-10-19','yyyy-mm-dd' )from dual;
+
+TO_DATE('2012-                                                                  
+--------------                                                                  
+19-10月-12                                                                      
+
+SQL> select to_date('10-24-2013','mm-dd-yyyy' )from dual;
+
+TO_DATE('10-24                                                                  
+--------------                                                                  
+24-10月-13                                                                      
+
+SQL> select to_number('$39,275.50','$99,999.99' )from dual;
+
+TO_NUMBER('$39,275.50','$99,999.99')                                            
+------------------------------------                                            
+                             39275.5                                            
+
+SQL> select to_number('0023','9999' )from dual;
+
+TO_NUMBER('0023','9999')                                                        
+------------------------                                                        
+                      23                                                        
+
+SQL> spool off;
